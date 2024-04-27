@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximamente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <p class="contact">Contacto: <a href="mailto:exter_ver@yahoo.com.mx">exter_ver@yahoo.com.mx</a></p>
+        </div>
+        <div class="countdown">
+            <h1>¡Próximamente para, ti!</h1>
+            <div id="countdown">
+                <span id="days" class="quantity">0</span> D : <span id="hours" class="quantity">0</span> H : <span id="minutes" class="quantity">0</span> M : <span id="seconds" class="quantity">0</span> S
+            </div>
+        </div>
+        <div class="motto">
+            <p>El bienestar del hombre y el cuidado de su entorno, nuestra prioridad</p>
+        </div>
+    </div>
+
+    <script>
+        var targetDate = new Date("June 5, 2024 12:00:00");
+
+        var countdownInterval = setInterval(function() {
+            var now = new Date();
+            var timeDifference = targetDate - now;
+
+            var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            if (timeDifference < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
